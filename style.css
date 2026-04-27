@@ -1,5 +1,12 @@
-header {
+/* Загальні налаштування */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+}
 
+header {
     background-color: #26c1ff; 
     background-image: url('back.jpeg'); 
     background-repeat: no-repeat;
@@ -7,35 +14,27 @@ header {
     background-size: contain; 
     width: 100%;
     min-height: 400px; 
-    height: 50vw;     
+    height: 50vw;      
     max-height: 550px; 
-
-  
     display: flex;
     align-items: center;
     justify-content: center;
     text-indent: -9999px; 
 }
 
-    margin: 0;
-    padding: 0;
-}
-
-
+/* Навігація */
 nav {
-  background-color: #333;        
-    padding: 20px 0;               
-    width: 100%;                    
-    margin: 0;                    
-    display: flex;                  
+    background-color: #333;                
+    padding: 20px 0;                               
+    width: 100%;                                   
+    margin: 0;                                   
+    display: flex;                                 
     justify-content: center;        
     align-items: center;           
     box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
     border-top: 1px solid #444;   
     border-bottom: 1px solid #444;   
- 
 }
-
 
 nav a {
     color: white !important;    
@@ -49,28 +48,16 @@ nav a {
     display: inline-block;      
 }
 
-
 nav a:hover {
     background-color: #4A90E2;  
     color: white;
 }
 
-
 nav a:active {
     background-color: #26C1FF;
 }
-@media (max-width: 768px) {
-    nav {
-        flex-wrap: wrap;             
-        padding: 10px 0;
-    }
-    nav a {
-        padding: 8px 16px;
-        margin: 5px;
-        font-size: 16px;
-    }
-}
 
+/* Контейнер для тексту */
 .container {
     width: 80%;
     margin: 20px auto;
@@ -84,7 +71,7 @@ h1, h2 {
     color: #2c3e50;
 }
 
-
+/* Галерея */
 .gallery {
     display: flex;
     justify-content: space-between; 
@@ -93,36 +80,20 @@ h1, h2 {
     gap: 15px;                      
 }
 
-
 .gallery img {
-    
     width: calc(25% - 11.25px); 
-    
     height: auto;                  
     border-radius: 12px;          
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
     transition: transform 0.3s ease; 
-    object-fit: cover;              
-}
+    object-fit: cover;
+} /* ОСЬ ЦЯ ДУЖКА БУЛА ПРОПУЩЕНА */
+
 .gallery img:hover {
-    transform: scale(1.03); 
+    transform: scale(1.05); 
 }
 
-
-@media (max-width: 900px) {
-    .gallery img {
-        width: calc(50% - 7.5px); 
-    }
-}
-
-
-@media (max-width: 500px) {
-    .gallery img {
-        width: 100%; 
-    }
-}
-
-
+/* Блоки для програм (5 сторінка) */
 .software-block {
     border-left: 5px solid #4A90E2;
     background: #ebf3fb;
@@ -144,4 +115,29 @@ h1, h2 {
     text-decoration: none;
     border-radius: 4px;
     margin-top: 10px;
+}
+
+/* Адаптивність */
+@media (max-width: 900px) {
+    .gallery img {
+        width: calc(50% - 7.5px); 
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-wrap: wrap;             
+        padding: 10px 0;
+    }
+    nav a {
+        padding: 8px 16px;
+        margin: 5px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 500px) {
+    .gallery img {
+        width: 100%; 
+    }
 }
