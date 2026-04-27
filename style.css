@@ -10,18 +10,12 @@ body {
 header {
     
     background-image: url('backgroung.jpg');
-    background-size: cover;      
-    background-position: center;  
-    background-repeat: no-repeat;
-    
-  
-    height: 250px;                
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    color: white;
-    text-align: center;
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    height: 50vw; 
+    max-height: 400px; 
+    text-indent: -9999px;
 }
 
 nav {
