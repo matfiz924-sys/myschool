@@ -1,32 +1,31 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
-}
-
 header {
-    height: auto; 
-    aspect-ratio: 2 / 0.8;
-    background-image: url('backgroung.jpg');
-   background-size: contain;    
+
+    background-color: #26c1ff; 
+    background-image: url('твій-новий-файл.jpg'); 
     background-repeat: no-repeat;
-    background-position: center;
-    background-color: #26C1FF;  
+    background-position: center top; 
+    background-size: contain; 
     width: 100%;
+    min-height: 400px; 
+    height: 50vw;     
+    max-height: 550px; 
+
+  
     display: flex;
     align-items: center;
     justify-content: center;
-    text-indent: -9999px;
-
+    text-indent: -9999px; 
 }
 
+    margin: 0;
+    padding: 0;
+}
+
+
 nav {
-    background: #333;
-    padding: 10px;
-    text-align: center;
+    margin-top: 0;
+    position: relative;
+    z-index: 10;
 }
 
 nav a {
