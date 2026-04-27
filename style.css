@@ -1,1 +1,87 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
 
+header {
+    background: #4A90E2;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    background: #333;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    background: white;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+h1, h2 {
+    color: #2c3e50;
+}
+
+.gallery {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.gallery img {
+    width: 23%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.video-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Блоки для програм (5 сторінка) */
+.software-block {
+    border-left: 5px solid #4A90E2;
+    background: #ebf3fb;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 0 8px 8px 0;
+}
+
+.software-block h3 {
+    margin-top: 0;
+    color: #4A90E2;
+}
+
+.btn-link {
+    display: inline-block;
+    padding: 8px 15px;
+    background: #4A90E2;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 10px;
+}
