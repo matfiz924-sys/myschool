@@ -1,13 +1,14 @@
-/* Рожева тема для всього сайту */
+/* Рожева тема */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #fff0f5; /* Світло-рожевий фон сторінки */
+    background-color: #fff0f5; /* Світло-рожевий фон */
+    line-height: 1.6; /* Додає простір між рядками тексту */
 }
 
 header {
-    background-color: #ffb6c1; /* Рожевий фон хеадера */
+    background-color: #ffb6c1; 
     background-image: url('back.jpeg'); 
     background-repeat: no-repeat;
     background-position: center top; 
@@ -22,13 +23,14 @@ header {
     text-indent: -9999px; 
 }
 
-/* Навігація в рожевих тонах */
+/* Навігація */
 nav {
-    background-color: #ff69b4; /* Насичений рожевий для меню */
+    background-color: #ff69b4; 
     padding: 15px 0;                               
     display: flex;                                 
     justify-content: center;        
     box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+    margin-bottom: 20px;
 }
 
 nav a {
@@ -38,65 +40,94 @@ nav a {
     margin: 0 10px;            
     font-size: 18px;            
     font-weight: bold;           
-    border-radius: 20px; /* Більш закруглені кнопки */
+    border-radius: 20px;
     transition: 0.3s; 
 }
 
 nav a:hover {
-    background-color: #ff1493; /* Темно-рожевий при наведенні */
+    background-color: #ff1493;
 }
 
-/* Стилі для Каруселі */
+/* --- ВИПРАВЛЕННЯ ВІДСТУПІВ ТЕКСТУ --- */
+.container {
+    width: 85%;
+    max-width: 1000px;
+    margin: 30px auto;
+    background: white;
+    /* Внутрішній відступ, щоб текст не торкався країв */
+    padding: 40px; 
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    border-radius: 15px;
+    box-sizing: border-box; /* Важливо, щоб padding не розширював блок */
+}
+
+.container p {
+    margin-bottom: 20px; /* Відступ між абзацами */
+    text-align: justify; /* Текст рівний по обох боках */
+}
+
+.container ul {
+    padding-left: 25px; /* Відступ для списку (крапок) */
+    margin-bottom: 20px;
+}
+
+.container li {
+    margin-bottom: 10px; /* Відступ між пунктами списку */
+}
+
+h2 {
+    color: #db7093;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+/* Карусель на 3 фото */
 .carousel-container {
     width: 100%;
-    max-width: 800px;
-    margin: 30px auto;
+    margin: 30px 0;
     overflow: hidden;
     border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     position: relative;
 }
 
 .carousel-slide {
     display: flex;
-    /* Ширина тепер 300%, бо у нас 3 фото по 100% ширини контейнера кожна */
     width: 300%; 
-    animation: slide-3 9s infinite; /* Зменшили час до 9 секунд (по 3с на фото) */
+    animation: slide-3 9s infinite;
 }
 
 .carousel-slide img {
-    /* Кожне фото тепер займає 1/3 від 300% ширини слайда */
     width: 33.333%; 
     height: 450px;
     object-fit: cover;
 }
 
-/* Нова анімація для 3-х зображень */
 @keyframes slide-3 {
     0% { transform: translateX(0); }
-    30% { transform: translateX(0); }             /* Перше фото стоїть */
-    33.33% { transform: translateX(-33.33%); }    /* Перехід до другого */
-    63.33% { transform: translateX(-33.33%); }    /* Друге фото стоїть */
-    66.66% { transform: translateX(-66.66%); }    /* Перехід до третього */
-    96.66% { transform: translateX(-66.66%); }    /* Третє фото стоїть */
-    100% { transform: translateX(0); }            /* Повернення до початку */
+    30% { transform: translateX(0); }
+    33.33% { transform: translateX(-33.33%); }
+    63.33% { transform: translateX(-33.33%); }
+    66.66% { transform: translateX(-66.66%); }
+    96.66% { transform: translateX(-66.66%); }
+    100% { transform: translateX(0); }
 }
 
-/* Блоки програм з іконками */
+/* Програми з іконками */
 .software-block {
     display: flex;
-    align-items: center;
-    border-left: 5px solid #ff69b4;
+    align-items: flex-start; /* Вирівнювання по верхньому краю */
+    border-left: 6px solid #ff69b4;
     background: #fff5f7;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 25px;
+    margin-bottom: 25px;
     border-radius: 12px;
+    gap: 20px;
 }
 
 .software-icon {
-    width: 60px;
-    height: 60px;
-    margin-right: 20px;
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0; /* Щоб іконка не стискалася */
     object-fit: contain;
 }
 
@@ -107,10 +138,11 @@ nav a:hover {
 
 .btn-link {
     display: inline-block;
-    padding: 8px 15px;
+    padding: 10px 20px;
     background: #ff69b4;
     color: white;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 8px;
     margin-top: 10px;
+    font-weight: bold;
 }
