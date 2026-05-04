@@ -1,13 +1,13 @@
-/* Загальні налаштування */
+/* Рожева тема для всього сайту */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f9;
+    background-color: #fff0f5; /* Світло-рожевий фон сторінки */
 }
 
 header {
-    background-color: #26c1ff; 
+    background-color: #ffb6c1; /* Рожевий фон хеадера */
     background-image: url('back.jpeg'); 
     background-repeat: no-repeat;
     background-position: center top; 
@@ -22,19 +22,13 @@ header {
     text-indent: -9999px; 
 }
 
-/* Навігація */
+/* Навігація в рожевих тонах */
 nav {
-    background-color: #333;                
-    padding: 20px 0;                               
-    width: 100%;                                   
-    margin: 0;                                   
+    background-color: #ff69b4; /* Насичений рожевий для меню */
+    padding: 15px 0;                               
     display: flex;                                 
     justify-content: center;        
-    align-items: center;           
     box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
-    border-top: 1px solid #444;   
-    border-bottom: 1px solid #444;   
-    
 }
 
 nav a {
@@ -44,101 +38,78 @@ nav a {
     margin: 0 10px;            
     font-size: 18px;            
     font-weight: bold;           
-    border-radius: 5px;         
-    transition: background 0.3s; 
-    display: inline-block;      
+    border-radius: 20px; /* Більш закруглені кнопки */
+    transition: 0.3s; 
 }
 
 nav a:hover {
-    background-color: #4A90E2;  
-    color: white;
+    background-color: #ff1493; /* Темно-рожевий при наведенні */
 }
 
-nav a:active {
-    background-color: #26C1FF;
+/* Стилі для Каруселі */
+.carousel-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 30px auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    position: relative;
 }
 
-/* Контейнер для тексту */
-.container {
-    width: 80%;
-    margin: 20px auto;
-    background: white;
-    padding: 30px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    border-radius: 8px;
-}
-
-h1, h2 {
-    color: #2c3e50;
-}
-
-/* Галерея */
-.gallery {
+.carousel-slide {
     display: flex;
-    justify-content: space-between; 
-    flex-wrap: wrap;                
-    margin: 30px 0;                
-    gap: 15px;                      
+    width: 400%; /* Для 4-х фото */
+    animation: slide 12s infinite; /* Автоматична прокрутка */
 }
 
-.gallery img {
-    width: calc(25% - 11.25px); 
-    height: auto;                  
-    border-radius: 12px;          
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-    transition: transform 0.3s ease; 
+.carousel-slide img {
+    width: 25%; /* Кожне фото займає 1/4 ширини слайда */
+    height: 450px;
     object-fit: cover;
-} /* ОСЬ ЦЯ ДУЖКА БУЛА ПРОПУЩЕНА */
-
-.gallery img:hover {
-    transform: scale(1.05); 
 }
 
-/* Блоки для програм (5 сторінка) */
+@keyframes slide {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(0); }
+    25% { transform: translateX(-25%); }
+    45% { transform: translateX(-25%); }
+    50% { transform: translateX(-50%); }
+    70% { transform: translateX(-50%); }
+    75% { transform: translateX(-75%); }
+    95% { transform: translateX(-75%); }
+    100% { transform: translateX(0); }
+}
+
+/* Блоки програм з іконками */
 .software-block {
-    border-left: 5px solid #4A90E2;
-    background: #ebf3fb;
+    display: flex;
+    align-items: center;
+    border-left: 5px solid #ff69b4;
+    background: #fff5f7;
     padding: 20px;
     margin-bottom: 20px;
-    border-radius: 0 8px 8px 0;
+    border-radius: 12px;
 }
 
-.software-block h3 {
-    margin-top: 0;
-    color: #4A90E2;
+.software-icon {
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+    object-fit: contain;
+}
+
+.software-info h3 {
+    margin: 0 0 10px 0;
+    color: #db7093;
 }
 
 .btn-link {
     display: inline-block;
     padding: 8px 15px;
-    background: #4A90E2;
+    background: #ff69b4;
     color: white;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 5px;
     margin-top: 10px;
-}
-
-/* Адаптивність */
-@media (max-width: 900px) {
-    .gallery img {
-        width: calc(50% - 7.5px); 
-    }
-}
-
-@media (max-width: 768px) {
-    nav {
-        flex-wrap: wrap;             
-        padding: 10px 0;
-    }
-    nav a {
-        padding: 8px 16px;
-        margin: 5px;
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 500px) {
-    .gallery img {
-        width: 100%; 
-    }
 }
