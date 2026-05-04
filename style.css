@@ -59,26 +59,27 @@ nav a:hover {
 
 .carousel-slide {
     display: flex;
-    width: 300%; /* Для 4-х фото */
-    animation: slide 6s infinite; /* Автоматична прокрутка */
+    /* Ширина тепер 300%, бо у нас 3 фото по 100% ширини контейнера кожна */
+    width: 300%; 
+    animation: slide-3 9s infinite; /* Зменшили час до 9 секунд (по 3с на фото) */
 }
 
 .carousel-slide img {
-    width: 25%; /* Кожне фото займає 1/4 ширини слайда */
+    /* Кожне фото тепер займає 1/3 від 300% ширини слайда */
+    width: 33.333%; 
     height: 450px;
     object-fit: cover;
 }
 
-@keyframes slide {
+/* Нова анімація для 3-х зображень */
+@keyframes slide-3 {
     0% { transform: translateX(0); }
-    20% { transform: translateX(0); }
-    25% { transform: translateX(-25%); }
-    45% { transform: translateX(-25%); }
-    50% { transform: translateX(-50%); }
-    70% { transform: translateX(-50%); }
-    75% { transform: translateX(-75%); }
-    95% { transform: translateX(-75%); }
-    100% { transform: translateX(0); }
+    30% { transform: translateX(0); }             /* Перше фото стоїть */
+    33.33% { transform: translateX(-33.33%); }    /* Перехід до другого */
+    63.33% { transform: translateX(-33.33%); }    /* Друге фото стоїть */
+    66.66% { transform: translateX(-66.66%); }    /* Перехід до третього */
+    96.66% { transform: translateX(-66.66%); }    /* Третє фото стоїть */
+    100% { transform: translateX(0); }            /* Повернення до початку */
 }
 
 /* Блоки програм з іконками */
