@@ -59,8 +59,8 @@ nav a:hover {
 
 .carousel-slide {
     display: flex;
-    width: 400%; /* Для 4-х фото */
-    animation: slide 12s infinite; /* Автоматична прокрутка */
+    width: 300%; /* Для 4-х фото */
+    animation: slide 6s infinite; /* Автоматична прокрутка */
 }
 
 .carousel-slide img {
