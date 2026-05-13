@@ -1,4 +1,26 @@
-/* Рожева тема */
+
+/* Стилі для відео */
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Співвідношення сторін 16:9 */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    border-radius: 15px;
+    border: 5px solid #ffb6c1; /* Рожева рамка навколо відео */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    margin-bottom: 30px;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}/* Рожева тема */
 body {
     margin: 0;
     padding: 0;
