@@ -2,11 +2,11 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>Інтерактивні вправи - 10 Клас</title>
+    <title>Інтерактивні Вправи - 10 Клас</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header><h1>Відеоматеріали</h1></header>
+    <header><h1>Інтерактивні Вправи</h1></header>
     <nav>
         <a href="index.html">Головна</a>
         <a href="index2.html">Психологія</a>
@@ -17,26 +17,151 @@
     </nav>
 
     <div class="container">
-        <h2>Корисне відео</h2>
-        <!-- ТУТ ВИПРАВЛЕНО: посилання змінено на /embed/ -->
-        <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/O-wLuC5dKrY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
+        <div class="quiz-container">
+            <div id="result-screen" class="hide">
+                <h2>Тест завершено!</h2>
+                <p id="score-text">Твій результат: 0 з 0</p>
+                <button onclick="restartQuiz()" class="kahoot-btn btn-purple">Пройти знову</button>
+            </div>
 
-        <hr style="border: 1px solid #ffb6c1; margin: 40px 0;">
-
-        <h2>Огляд Wordwall</h2>
-        <p>Ви можете переглянути платформу нижче, або натиснути кнопку для переходу.</p>
-        
-        <div class="wordwall-container">
-            <!-- Невидимий блок, який не дає натискати на сайт всередині -->
-            <div class="wordwall-overlay"></div>
-            <iframe src="https://wordwall.net/uk" frameborder="0"></iframe>
-        </div>
-        
-        <div style="text-align: center; margin-top: 20px;">
-            <a href="https://wordwall.net/" target="_blank" class="btn-link">Перейти на Wordwall</a>
+            <div id="quiz-screen">
+                <div class="quiz-header">
+                    <span id="question-counter">Питання 1 з 7</span>
+                </div>
+                <div class="question-box">
+                    <h2 id="question-text">Завантаження питання...</h2>
+                </div>
+                
+                <div class="answers-grid">
+                    <button class="kahoot-btn btn-red" onclick="checkAnswer(0)" id="btn0">Варіант 1</button>
+                    <button class="kahoot-btn btn-blue" onclick="checkAnswer(1)" id="btn1">Варіант 2</button>
+                    <button class="kahoot-btn btn-yellow" onclick="checkAnswer(2)" id="btn2">Варіант 3</button>
+                    <button class="kahoot-btn btn-green" onclick="checkAnswer(3)" id="btn3">Варіант 4</button>
+                </div>
+                
+                <div class="quiz-footer">
+                    <button id="next-btn" class="hide" onclick="nextQuestion()">Наступне питання &rarr;</button>
+                </div>
+            </div>
         </div>
     </div>
+
+    <script>
+        const quizData = [
+            {
+                question: "У якому році була укладена Люблінська унія?",
+                answers: ["1667 рік", "1569 рік", "1918 рік", "1492 рік"],
+                correct: 1
+            },
+            {
+                question: "Коли було підписано Андрусівське перемир'я?",
+                answers: ["1667 рік", "1569 рік", "1709 рік", "1918 рік"],
+                correct: 0
+            },
+            {
+                question: "У якому році відбулося підписання Брестського миру?",
+                answers: ["1939 рік", "1654 рік", "1918 рік", "1945 рік"],
+                correct: 2
+            },
+            {
+                question: "До якого століття відноситься діяльність Кирило-Мефодіївського братства?",
+                answers: ["XVIII ст.", "XVII ст.", "XX ст.", "XIX ст."],
+                correct: 3
+            },
+            {
+                question: "З яким історичним явищем або подією часто пов'язують поняття 'Руїна'?",
+                answers: ["Національно-визвольна війна", "Громадянська війна", "Козацька держава", "Люблінська унія"],
+                correct: 1
+            },
+            {
+                question: "Який титул мав Данило Галицький?",
+                answers: ["Гетьман України", "Король Русі", "Князь Київський", "Цар слов'ян"],
+                correct: 1
+            },
+            {
+                question: "Хто був видатним командиром та провідником УПА?",
+                answers: ["Михайло Грушевський", "Іван Мазепа", "Роман Шухевич", "Степан Чернецький"],
+                correct: 2
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let canAnswer = true;
+
+        function startQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            document.getElementById("result-screen").classList.add("hide");
+            document.getElementById("quiz-screen").classList.remove("hide");
+            showQuestion();
+        }
+
+        function showQuestion() {
+            canAnswer = true;
+            document.getElementById("next-btn").classList.add("hide");
+            
+            const currentQuestion = quizData[currentQuestionIndex];
+            document.getElementById("question-counter").innerText = `Питання ${currentQuestionIndex + 1} з ${quizData.length}`;
+            document.getElementById("question-text").innerText = currentQuestion.question;
+
+            for (let i = 0; i < 4; i++) {
+                const btn = document.getElementById(`btn${i}`);
+                btn.innerText = currentQuestion.answers[i];
+                btn.className = 'kahoot-btn ' + getBtnColorClass(i); 
+            }
+        }
+
+        function getBtnColorClass(index) {
+            if(index === 0) return "btn-red";
+            if(index === 1) return "btn-blue";
+            if(index === 2) return "btn-yellow";
+            return "btn-green";
+        }
+
+        function checkAnswer(selectedIndex) {
+            if (!canAnswer) return;
+            canAnswer = false;
+
+            const currentQuestion = quizData[currentQuestionIndex];
+            const correctIndex = currentQuestion.correct;
+
+            for (let i = 0; i < 4; i++) {
+                const btn = document.getElementById(`btn${i}`);
+                if (i === correctIndex) {
+                    btn.classList.add("correct"); 
+                } else if (i === selectedIndex) {
+                    btn.classList.add("wrong"); 
+                }
+            }
+
+            if (selectedIndex === correctIndex) {
+                score++;
+            }
+
+            document.getElementById("next-btn").classList.remove("hide");
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizData.length) {
+                showQuestion();
+            } else {
+                showQuizResults();
+            }
+        }
+
+        function showQuizResults() {
+            document.getElementById("quiz-screen").classList.add("hide");
+            document.getElementById("result-screen").classList.remove("hide");
+            document.getElementById("score-text").innerText = `Твій результат: ${score} з ${quizData.length} правильних відповідей!`;
+        }
+
+        function restartQuiz() {
+            startQuiz();
+        }
+
+        window.onload = startQuiz;
+    </script>
 </body>
 </html>
