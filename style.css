@@ -1,4 +1,122 @@
-/* Контейнер для Wordwall */
+
+/* --- СТИЛІ ДЛЯ ТЕСТУ KAHOOT --- */
+.quiz-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.quiz-header {
+    font-size: 18px;
+    font-weight: bold;
+    color: #db7093;
+    margin-bottom: 15px;
+}
+
+.question-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border: 3px solid #ffb6c1;
+    margin-bottom: 30px;
+}
+
+.question-box h2 {
+    color: #333 !important;
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Сітка 2х2 для кнопок відповідей */
+.answers-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+/* Базовий стиль Kahoot кнопок */
+.kahoot-btn {
+    border: none;
+    color: white !important;
+    padding: 25px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 6px 0 rgba(0,0,0,0.15);
+    transition: all 0.1s ease;
+    text-align: center;
+}
+
+.kahoot-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.15);
+}
+
+/* Кольори Kahoot */
+.btn-red { background-color: #e21b3c; }
+.btn-red:hover { background-color: #c91430; }
+
+.btn-blue { background-color: #1368ce; }
+.btn-blue:hover { background-color: #0f52a5; }
+
+.btn-yellow { background-color: #d89e00; }
+.btn-yellow:hover { background-color: #b38300; }
+
+.btn-green { background-color: #26890c; }
+.btn-green:hover { background-color: #1e6b0a; }
+
+.btn-purple { background-color: #8644b5; }
+
+/* Стани правильної/неправильної відповіді */
+.kahoot-btn.correct {
+    background-color: #26890c !important;
+    border: 4px solid #fff;
+    box-shadow: 0 0 15px rgba(38, 137, 12, 0.6);
+}
+
+.kahoot-btn.wrong {
+    background-color: #e21b3c !important;
+    opacity: 0.7;
+    text-decoration: line-through;
+}
+
+/* Кнопка далі */
+#next-btn {
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
+    transition: 0.2s;
+}
+
+#next-btn:hover {
+    background-color: #ff1493;
+}
+
+/* Допоміжний клас ховання елементів */
+.hide {
+    display: none !important;
+}
+
+/* Адаптація для телефонів (кнопки стають в один стовпчик) */
+@media (max-width: 650px) {
+    .answers-grid {
+        grid-template-columns: 1fr;
+    }
+    .kahoot-btn {
+        padding: 18px 15px;
+        font-size: 18px;
+    }
+}/* Контейнер для Wordwall */
 .wordwall-container {
     position: relative;
     width: 100%;
